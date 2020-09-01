@@ -2,7 +2,7 @@
 
 Hello,
 
-My Name is Mayukh and i here are my solutions to the Winter 2021 Data Science Intern Challenge.
+My Name is Mayukh and here are my solutions to the Winter 2021 Data Science Intern Challenge.
 
 Question 1 is provided in 3 different formats:
   1. Jupyter Notebook
