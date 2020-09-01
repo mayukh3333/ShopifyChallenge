@@ -1,0 +1,45 @@
+Query1:
+How many orders were shipped by Speedy Express in total?
+--------------------------
+SELECT count(*) as 'Orders Shipped by Speedy Express'
+FROM Shippers S
+JOIN Orders O
+ON S.ShipperID = O.ShipperID
+WHERE S.ShipperName is 'Speedy Express';
+--------------------------
+Answer: 54
+
+*****************************************************************
+
+Query2:
+What is the last name of the employee with the most orders?
+--------------------------
+SELECT E.LastName as 'Last Name'
+FROM Employees E
+JOIN Orders O
+ON O.EmployeeID=E.EmployeeID
+GROUP BY O.EmployeeID
+ORDER BY count(O.EmployeeID)
+desc LIMIT 1;
+--------------------------
+Answer: Peacock
+
+*****************************************************************
+
+Query3:
+What product was ordered the most by customers in Germany?
+--------------------------
+SELECT P.ProductName as 'Most Ordered From Germany'
+FROM OrderDetails OD
+JOIN Orders O
+ON OD.OrderID = O.OrderID
+JOIN Customers C
+ON C.CustomerID = O.CustomerID
+JOIN Products P
+ON P.ProductID = OD.ProductID
+WHERE C.Country is 'Germany'
+GROUP BY OD.ProductID
+ORDER BY Sum(OD.Quantity) desc
+Limit 1;
+--------------------------
+Answer: Boston Crab Meat
